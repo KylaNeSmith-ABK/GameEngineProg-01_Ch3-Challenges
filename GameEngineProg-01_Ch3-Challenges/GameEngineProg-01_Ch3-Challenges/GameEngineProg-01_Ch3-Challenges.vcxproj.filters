@@ -18,5 +18,19 @@
     <ClCompile Include="GameEngineProg-01_Ch3-Challenges.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LeapYear.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Factors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LeapYear.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Factors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

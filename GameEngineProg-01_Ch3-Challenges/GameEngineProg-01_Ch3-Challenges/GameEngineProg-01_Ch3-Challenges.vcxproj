@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Factors.cpp" />
     <ClCompile Include="GameEngineProg-01_Ch3-Challenges.cpp" />
+    <ClCompile Include="LeapYear.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Factors.h" />
+    <ClInclude Include="LeapYear.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,23 +5,44 @@
 #include <limits>
 #include <ctime>
 
-bool IsLeapYear(int year);
-void CheckIfLeapYear(int year);
+#include "LeapYear.h"
+#include "Factors.h"
+
+void CurrentYearTest();
+void ProvidedYearTest();
+void FactorsTest();
 
 int main()
 {
     std::cout << "-- LEAP YEAR --" << std::endl;
 
+    CurrentYearTest();
+
+    std::cout << std::endl;
+
+    
+    ProvidedYearTest();
+
+    std::cout << std::endl;
+    std::cout << "-- FACTORS --" << std::endl;
+    
+    FactorsTest();
+}
+
+void CurrentYearTest()
+{
     struct tm currentTime;
     std::time_t now = std::time(0);
     localtime_s(&currentTime, &now);
     int currentYear = 1900 + currentTime.tm_year;
 
     std::cout << "The current year is " << currentYear << std::endl;
-    CheckIfLeapYear(currentYear);
+    LeapYear::CheckIfLeapYear(currentYear);
+}
 
-    std::cout << std::endl;
-
+void ProvidedYearTest()
+{
+    int currentYear = 1900;
     std::cout << "Please provide a year (e.g. 2024):" << std::endl;
 
     do
@@ -39,12 +60,11 @@ int main()
         }
     } while (true);
 
-    CheckIfLeapYear(currentYear);
-    
+    LeapYear::CheckIfLeapYear(currentYear);
+}
 
-    std::cout << std::endl;
-    std::cout << "-- FACTORS --" << std::endl;
-    
+void FactorsTest()
+{
     int num = 0;
 
     std::cout << "Please provide a positive integer:" << std::endl;
@@ -64,33 +84,5 @@ int main()
         }
     } while (true);
 
-    std::cout << "The factors of " << num << " are ";
-    for (int i = 1; i <= num; i++)
-    {
-        if (num % i == 0)
-        {
-            std::cout << i;
-            if (i < num)
-            {
-                std::cout << ", ";
-            }
-        }
-    }
-}
-
-bool IsLeapYear(int year)
-{
-    return ((year % 4 == 0) && (!(year % 100 == 0) || (year % 400 == 0)));
-}
-
-void CheckIfLeapYear(int year)
-{
-    if (IsLeapYear(year))
-    {
-        std::cout << year << " is a leap year!" << std::endl;
-    }
-    else
-    {
-        std::cout << year << " is NOT a leap year" << std::endl;
-    }
+    Factors::FactorsOf(num);
 }
